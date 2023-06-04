@@ -301,6 +301,7 @@ function ESP:Add(obj, options)
 		Color = box.Color,
 		Center = true,
 		Outline = true,
+		Font = 2,
         Size = 13,
         Visible = self.Enabled and self.Names
 	})
