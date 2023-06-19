@@ -10,7 +10,9 @@ local camera = workspace.CurrentCamera;
 local viewportSize = camera.ViewportSize;
 local container = Instance.new("Folder",
 	gethui and gethui() or game:GetService("CoreGui"));
-
+runService.RenderStepped:Connect(function()
+	camera = workspace.CurrentCamera
+end)
 -- locals
 local floor = math.floor;
 local round = math.round;
