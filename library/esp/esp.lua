@@ -305,7 +305,7 @@ function EspObject:Render()
 		local barTo = corners.bottomLeft - HEALTH_BAR_OFFSET;
 
 		local healthText = visible.healthText;
-		healthText.Text = round(self.health) .. "hp";
+		healthText.Text = round(self.health+0.9) .. "hp";
 		healthText.Size = interface.sharedSettings.textSize;
 		healthText.Font = interface.sharedSettings.textFont;
 		healthText.Color = parseColor(self, options.healthTextColor[1]);
@@ -330,7 +330,7 @@ function EspObject:Render()
 	visible.distance.Visible = enabled and onScreen and self.distance and options.distance;
 	if visible.distance.Visible then
 		local distance = visible.distance;
-		distance.Text = round(self.distance) .. " studs";
+		distance.Text = round(self.distance*0.28) .. "m";
 		distance.Size = interface.sharedSettings.textSize;
 		distance.Font = interface.sharedSettings.textFont;
 		distance.Color = parseColor(self, options.distanceColor[1]);
