@@ -112,17 +112,7 @@ local function parseColor(self, color, isOutline)
 	end
 	return color;
 end
-local whitelisted = {
-	"FikRisRBLX",
-	"nohat_swimdroid",
-	"swimdroid_1",
-	"swimdroid_2",
-	"swimdroid_3",
-	"swimdroid_4",
-	"swimdroid_5",
-	"IiminaI_space",
-	"Pozzews",
-}
+
 -- esp object
 local EspObject = {};
 EspObject.__index = EspObject;
@@ -187,7 +177,6 @@ function EspObject:Construct()
 		hidden = {
 			arrowOutline = self:_create("Triangle", { Thickness = 3, Visible = false }),
 			arrow = self:_create("Triangle", { Filled = true, Visible = false }),
-			devtext = self:_create("Text", { Center = true, Visible = false })
 		}
 	};
 
@@ -336,15 +325,6 @@ function EspObject:Render()
 		name.Outline = options.nameOutline;
 		name.OutlineColor = parseColor(self, options.nameOutlineColor, true);
 		name.Position = (corners.topLeft + corners.topRight)*0.5 - Vector2.yAxis*name.TextBounds.Y - NAME_OFFSET;
-		local devtext = visible.devtext
-		devtext.Text = "[dev]"
-		devtext.Size = interface.sharedSettings.textSize;
-		devtext.Font = interface.sharedSettings.textFont;
-		devtext.Color = Color3.new(1,0,0);
-		devtext.Transparency = options.nameColor[2];
-		devtext.Outline = options.nameOutline;
-		devtext.OutlineColor = parseColor(self, options.nameOutlineColor, true);
-		devtext.Position = (corners.topLeft + corners.topRight)*0.5 - Vector2.yAxis*name.TextBounds.Y;
 	end
 
 	visible.distance.Visible = enabled and onScreen and self.distance and options.distance;
