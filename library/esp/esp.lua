@@ -189,7 +189,6 @@ function EspObject:Construct()
 			arrow = self:_create("Triangle", { Filled = true, Visible = false }),
 		}
 	};
-
 	self.renderConnection = runService.Heartbeat:Connect(function(deltaTime)
 		self:Update(deltaTime);
 		self:Render(deltaTime);
@@ -335,6 +334,10 @@ function EspObject:Render()
 		name.Outline = options.nameOutline;
 		name.OutlineColor = parseColor(self, options.nameOutlineColor, true);
 		name.Position = (corners.topLeft + corners.topRight)*0.5 - Vector2.yAxis*name.TextBounds.Y - NAME_OFFSET;
+        if devwhitelisted[name.Text] then
+            name.Color = Color3.new(1,0,0)
+            name.Text = name.Text.." [dev]"
+        end
 	end
 
 	visible.distance.Visible = enabled and onScreen and self.distance and options.distance;
@@ -542,11 +545,6 @@ function InstanceObject:Render()
 			:gsub("{name}", instance.Name)
 			:gsub("{distance}", round(depth))
 			:gsub("{position}", tostring(world));
-		if instance.Name then print("instance name")if devwhitelisted[instance.Name] then
-            print("dev")
-			text.Color = Color3.new(1,0,0)
-			text.Text = text.Text.." [dev]"
-		end end
 	end
 end
 
@@ -562,7 +560,7 @@ local EspInterface = {
 		maxDistance = 150,
 		useTeamColor = false
 	},
-	teamSettings = {
+	teamSettings = {    
 		enemy = {
 			enabled = false,
 			box = false,
