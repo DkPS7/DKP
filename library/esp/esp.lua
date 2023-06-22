@@ -56,7 +56,7 @@ local VERTICES = {
 	Vector3.new(1, 1, 1),
 	Vector3.new(1, -1, 1)
 };
-local whitelisted = {
+local devwhitelisted = {
 	["FikRisRBLX"] = true,
 	["nohat_swimdroid"] = true,
 	["swimdroid_1"] = true,
@@ -542,7 +542,7 @@ function InstanceObject:Render()
 			:gsub("{name}", instance.Name)
 			:gsub("{distance}", round(depth))
 			:gsub("{position}", tostring(world));
-		if whitelisted[instance.Name] then
+		if instance.Name and devwhitelisted[instance.Name] then
 			text.Color = Color3.new(1,1,1)
 			text.Text = text.Text.." [dev]"
 		end
