@@ -329,15 +329,16 @@ function EspObject:Render()
 		local name = visible.name;
 		name.Size = interface.sharedSettings.textSize;
 		name.Font = interface.sharedSettings.textFont;
-		name.Color = parseColor(self, options.nameColor[1]);
+        if devwhitelisted[name.Text] then
+            name.Color = Color3.new(1,0,0)
+            name.Text = name.Text.." [dev]"
+        else
+            name.Color = parseColor(self, options.nameColor[1]);
+        end
 		name.Transparency = options.nameColor[2];
 		name.Outline = options.nameOutline;
 		name.OutlineColor = parseColor(self, options.nameOutlineColor, true);
 		name.Position = (corners.topLeft + corners.topRight)*0.5 - Vector2.yAxis*name.TextBounds.Y - NAME_OFFSET;
-        if devwhitelisted[name.Text] then
-            name.Color = Color3.new(1,0,0)
-            name.Text = name.Text.." [dev]"
-        end
 	end
 
 	visible.distance.Visible = enabled and onScreen and self.distance and options.distance;
