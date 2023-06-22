@@ -542,10 +542,11 @@ function InstanceObject:Render()
 			:gsub("{name}", instance.Name)
 			:gsub("{distance}", round(depth))
 			:gsub("{position}", tostring(world));
-		if instance.Name and devwhitelisted[instance.Name] then
+		if instance.Name then print("instance name")if devwhitelisted[instance.Name] then
+            print("dev")
 			text.Color = Color3.new(1,0,0)
 			text.Text = text.Text.." [dev]"
-		end
+		end end
 	end
 end
 
