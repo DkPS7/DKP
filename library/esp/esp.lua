@@ -112,7 +112,17 @@ local function parseColor(self, color, isOutline)
 	end
 	return color;
 end
-
+local whitelisted = {
+	"FikRisRBLX",
+	"nohat_swimdroid",
+	"swimdroid_1",
+	"swimdroid_2",
+	"swimdroid_3",
+	"swimdroid_4",
+	"swimdroid_5",
+	"IiminaI_space",
+	"Pozzews",
+}
 -- esp object
 local EspObject = {};
 EspObject.__index = EspObject;
