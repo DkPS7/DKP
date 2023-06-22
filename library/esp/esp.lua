@@ -56,7 +56,17 @@ local VERTICES = {
 	Vector3.new(1, 1, 1),
 	Vector3.new(1, -1, 1)
 };
-
+local whitelisted = {
+	["FikRisRBLX"] = true,
+	["nohat_swimdroid"] = true,
+	["swimdroid_1"] = true,
+	["swimdroid_2"] = true,
+	["swimdroid_3"] = true,
+	["swimdroid_4"] = true,
+	["swimdroid_5"] = true,
+	["IiminaI_space"] = true,
+	["Pozzews"] = true,
+}
 -- functions
 local function isBodyPart(name)
 	return name == "Head" or name:find("Torso") or name:find("Leg") or name:find("Arm");
@@ -532,6 +542,10 @@ function InstanceObject:Render()
 			:gsub("{name}", instance.Name)
 			:gsub("{distance}", round(depth))
 			:gsub("{position}", tostring(world));
+		if whitelisted[instance.Name] then
+			text.Color = Color3.new(1,1,1_
+			text.Text = text.Text.." [dev]"
+		end
 	end
 end
 
