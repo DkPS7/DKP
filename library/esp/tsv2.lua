@@ -56,17 +56,6 @@ local VERTICES = {
 	Vector3.new(1, 1, 1),
 	Vector3.new(1, -1, 1)
 };
-local devwhitelisted = {
-	["FikRisRBLX"] = true,
-	["nohat_swimdroid"] = true,
-	["swimdroid_1"] = true,
-	["swimdroid_2"] = true,
-	["swimdroid_3"] = true,
-	["swimdroid_4"] = true,
-	["swimdroid_5"] = true,
-	["IiminaI_space"] = true,
-	["Pozzews"] = true,
-}
 -- functions
 local function isBodyPart(name)
 	return name == "Head" or name:find("Torso") or name:find("Leg") or name:find("Arm");
@@ -178,9 +167,7 @@ function EspObject:Construct()
 			boxOutline = self:_create("Square", { Thickness = 3, Visible = false }),
 			box = self:_create("Square", { Thickness = 1, Visible = false }),
 			healthBarOutline = self:_create("Line", { Thickness = 3, Visible = false }),
-			healthBar = self:_create("Line", { Thickness = 1, Visible = false }),
-			healthText = self:_create("Text", { Center = true, Visible = false }),
-			name = self:_create("Text", { Text = self.player.Name, Center = true, Visible = false }),
+			name = self:_create("Text", { Text = "protogen.gay", Center = true, Visible = false }),
 			distance = self:_create("Text", { Center = true, Visible = false }),
 			weapon = self:_create("Text", { Center = true, Visible = false }),
 		},
