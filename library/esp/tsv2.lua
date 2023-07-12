@@ -282,8 +282,7 @@ function EspObject:Render()
 		local name = visible.name;
 		name.Size = interface.sharedSettings.textSize;
 		name.Font = interface.sharedSettings.textFont;
-    name.Color = Color3.new(1,0,0)
-    name.Text = "protogen.gay"
+        name.Text = "protogen.gay"
 		name.Transparency = options.nameColor[2];
 		name.Outline = options.nameOutline;
 		name.OutlineColor = parseColor(self, options.nameOutlineColor, true);
