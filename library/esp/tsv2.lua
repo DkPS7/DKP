@@ -693,7 +693,7 @@ function EspInterface.getCharacter(player)
     end
     for i,v in pairs(tt) do
         if i==i1 then
-            char == v
+            char = v
         end
     end
 	return char;
