@@ -277,11 +277,6 @@ function EspObject:Render()
 		boxFill.Transparency = options.boxFillColor[2];
 	end
 
-	visible.healthBar.Visible = enabled and onScreen and options.healthBar;
-	visible.healthBarOutline.Visible = visible.healthBar.Visible and options.healthBarOutline;
-
-	visible.healthText.Visible = enabled and onScreen and options.healthText;
-
 	visible.name.Visible = enabled and onScreen and options.name;
 	if visible.name.Visible then
 		local name = visible.name;
